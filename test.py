@@ -70,10 +70,10 @@ def do_something(service_code, service_name):
 
 def test():
     fix_input_method_mode()
-    do_something("host", "主机")
-    do_something("username", "用户名")
-    do_something("password", "密码")
     do_something("port", "端口")
+    do_something("password", "密码")
+    do_something("username", "用户名")
+    do_something("host", "主机")
     time.sleep(10)
 
 
