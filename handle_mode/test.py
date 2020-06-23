@@ -11,6 +11,14 @@ test_data = {
     "password": u"tsl0615",
     "port": u"22",
 }
+"""
+在使用inspect.exe时:
+Name            -> title
+AutomationId    -> auto_id
+ClassName       -> control_type
+
+从顶层窗口开始往下层找, 使用child_window
+"""
 
 
 def test(win_filezilla):
