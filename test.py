@@ -49,9 +49,9 @@ def condition_input_method_mode():
 
 
 test_data = {
-    "host": u"10.10.50.21",
-    "username": u"tristan",
-    "password": u"test",
+    "host": u"192.168.121.138",
+    "username": u"root",
+    "password": u"tsl0615",
     "port": u"22",
 }
 
@@ -77,12 +77,25 @@ def do_something(service_code, service_name):
     logging.info("%s输入框输入" % service_name)
 
 
+def click_something(service_code, service_name):
+    logging.info("%s按钮出现进行中" % service_name)
+    something_box_check_pos = pyautogui.wait_locate_center_on_screen(
+        r'image_location_resources/%s.png' % service_code)
+    logging.info("%s按钮出现" % service_name)
+    logging.info(something_box_check_pos)
+    something_box_check_pos_x, something_box_check_pos_y = something_box_check_pos
+    pyautogui.click(something_box_check_pos_x, something_box_check_pos_y)  # 点击
+    logging.info("%s按钮点击" % service_name)
+
+
 def test():
     fix_input_method_mode()
     do_something("port", "端口")
     do_something("password", "密码")
-    do_something("username", "用户名")
+    do_something("username", "用户a名")
     do_something("host", "主机")
+    click_something("quick_connect", "快速连接")
+    click_something("quick_connect_ok", "确定快速连接")
     time.sleep(10)
 
 
